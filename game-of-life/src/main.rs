@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
 const BLOCK_SIZE: Vec2 = Vec2::new(15.,15.);
-//const GAB_BETWEEN_BLOCK: f32 = 1.;
+const GAB_BETWEEN_BLOCK: f32 = 3.;
 
 const LEFT_WALL: f32 = -550.;
 const RIGHT_WALL: f32 = 250.;
@@ -91,22 +91,37 @@ fn setup(mut commands: Commands) {
     commands.spawn(Wall::new(WallLocation::Top));
     commands.spawn(Wall::new(WallLocation::Bottom));
 
-    let brick_position= Vec2::new(-540.,-280.);
 
-    commands.spawn((
-        SpriteBundle {
-            sprite: Sprite {
-                color: BLOCK_COLOR, 
-                ..default()
-            },
-            transform: Transform {
-                translation: brick_position.extend(0.),
-                scale: Vec3::new(BLOCK_SIZE.x, BLOCK_SIZE.y, 1.0),
-                ..default()
-            },
-            ..default()
-        },
-        Blocks,
-        ));
+    // compute how many blocks can be fit
+    let total_block_width =  (RIGHT_WALL -  LEFT_WALL) - 2. * GAB_BETWEEN_BLOCK ;
+    let total_block_height = (TOP_WALL - BOTTOM_WALL) - 2. * GAB_BETWEEN_BLOCK ;
+
+    let x_columms = ((total_block_width / (BLOCK_SIZE.x + GAB_BETWEEN_BLOCK) ).floor() - 1.) as usize;
+    let x_rows = (total_block_height / (BLOCK_SIZE.y + GAB_BETWEEN_BLOCK) ).floor() as usize;
+
+    for row in 0..x_rows {
+        for col in 0..x_columms {
+            let brick_position = Vec2::new(
+                col as f32 * (BLOCK_SIZE.x + GAB_BETWEEN_BLOCK) + LEFT_WALL + 22.,
+                row as f32 * (BLOCK_SIZE.y + GAB_BETWEEN_BLOCK) + BOTTOM_WALL + 20.,
+                );
+
+            commands.spawn((
+                SpriteBundle {
+                    sprite: Sprite {
+                        color: BLOCK_COLOR, 
+                        ..default()
+                    },
+                    transform: Transform {
+                        translation: brick_position.extend(0.),
+                        scale: Vec3::new(BLOCK_SIZE.x, BLOCK_SIZE.y, 1.0),
+                        ..default()
+                    },
+                    ..default()
+                },
+                Blocks,
+            ));
+        }
+    }
 }
 
