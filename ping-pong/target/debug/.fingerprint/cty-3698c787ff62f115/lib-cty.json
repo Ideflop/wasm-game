@@ -1,1 +1,0 @@
-{"rustc":13646863235972240414,"features":"[]","target":10308157505131260967,"profile":17121947058172583119,"path":9323927081322509718,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/cty-3698c787ff62f115/dep-lib-cty"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":6700480107228862934,"config":16520146531172537597,"compile_kind":0}

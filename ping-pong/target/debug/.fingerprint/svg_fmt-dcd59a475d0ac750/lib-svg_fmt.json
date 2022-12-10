@@ -1,1 +1,0 @@
-{"rustc":13646863235972240414,"features":"[]","target":9034930632400589641,"profile":17121947058172583119,"path":10512257047109914818,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/svg_fmt-dcd59a475d0ac750/dep-lib-svg_fmt"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":15371180471505507081,"config":16520146531172537597,"compile_kind":0}

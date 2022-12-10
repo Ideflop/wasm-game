@@ -1,3 +1,0 @@
-cargo:rerun-if-changed=build/main.rs
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/idefux/Dokumente/programm/wasm-game/ping-pong/target/debug/build/typenum-a38cc7349e74ca9e/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/home/idefux/Dokumente/programm/wasm-game/ping-pong/target/debug/build/typenum-a38cc7349e74ca9e/out/op.rs

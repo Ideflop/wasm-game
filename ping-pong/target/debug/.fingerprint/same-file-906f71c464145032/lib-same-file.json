@@ -1,1 +1,0 @@
-{"rustc":13646863235972240414,"features":"[]","target":14360582636618029776,"profile":17121947058172583119,"path":9632888913332085356,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/same-file-906f71c464145032/dep-lib-same-file"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":11023981866482830203,"config":16520146531172537597,"compile_kind":0}

@@ -1,1 +1,0 @@
-{"rustc":13646863235972240414,"features":"[]","target":13666716094189885029,"profile":17121947058172583119,"path":15298466801524309758,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/fastrand-31c677aee4198cb3/dep-lib-fastrand"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":10402231642546230285,"config":16520146531172537597,"compile_kind":0}
