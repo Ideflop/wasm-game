@@ -1,7 +1,17 @@
 use bevy::prelude::*;
+use bevy_inspector_egui::{InspectorPlugin, Inspectable, WorldInspectorPlugin};
 
-const BLOCK_SIZE: Vec2 = Vec2::new(15.,15.);
-const GAB_BETWEEN_BLOCK: f32 = 3.;
+mod blocks;
+
+use blocks::BlocksPlugin;
+
+#[derive(Resource, Inspectable, Default)]
+struct Data {
+    should_render: bool,
+    text: String,
+    #[inspectable(min = 42.0, max = 100.0)]
+    size: f32,
+}
 
 const LEFT_WALL: f32 = -550.;
 const RIGHT_WALL: f32 = 250.;
@@ -9,20 +19,20 @@ const BOTTOM_WALL: f32 = -290.;
 const TOP_WALL: f32 = 290.;
 const WALL_THICKNESS: f32 = 5.;
 
-const BLOCK_COLOR: Color = Color::rgb(0.9, 0.9, 0.9);
 const WALL_COLOR: Color = Color::rgb(0.5, 0.5, 0.5);
-const BACKGROUND_COLOR: Color = Color::rgb(1., 1., 1.);
+const BACKGROUND_COLOR: Color = Color::rgb(0.9, 0.9, 0.9);
 
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
+        .add_plugin(WorldInspectorPlugin::new())
         .insert_resource(ClearColor(BACKGROUND_COLOR))
         .add_startup_system(setup)
-        .run();
+        .add_plugin(BlocksPlugin)
+        .run()
+
 }
 
-#[derive(Component)]
-struct Blocks;
 
 #[derive(Bundle)]
 struct Wall {
@@ -86,42 +96,11 @@ impl Wall {
 fn setup(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 
+    //spwan walls
     commands.spawn(Wall::new(WallLocation::Left));
     commands.spawn(Wall::new(WallLocation::Right));
     commands.spawn(Wall::new(WallLocation::Top));
     commands.spawn(Wall::new(WallLocation::Bottom));
 
-
-    // compute how many blocks can be fit
-    let total_block_width =  (RIGHT_WALL -  LEFT_WALL) - 2. * GAB_BETWEEN_BLOCK ;
-    let total_block_height = (TOP_WALL - BOTTOM_WALL) - 2. * GAB_BETWEEN_BLOCK ;
-
-    let x_columms = ((total_block_width / (BLOCK_SIZE.x + GAB_BETWEEN_BLOCK) ).floor() - 1.) as usize;
-    let x_rows = (total_block_height / (BLOCK_SIZE.y + GAB_BETWEEN_BLOCK) ).floor() as usize;
-
-    for row in 0..x_rows {
-        for col in 0..x_columms {
-            let brick_position = Vec2::new(
-                col as f32 * (BLOCK_SIZE.x + GAB_BETWEEN_BLOCK) + LEFT_WALL + 22.,
-                row as f32 * (BLOCK_SIZE.y + GAB_BETWEEN_BLOCK) + BOTTOM_WALL + 20.,
-                );
-
-            commands.spawn((
-                SpriteBundle {
-                    sprite: Sprite {
-                        color: BLOCK_COLOR, 
-                        ..default()
-                    },
-                    transform: Transform {
-                        translation: brick_position.extend(0.),
-                        scale: Vec3::new(BLOCK_SIZE.x, BLOCK_SIZE.y, 1.0),
-                        ..default()
-                    },
-                    ..default()
-                },
-                Blocks,
-            ));
-        }
-    }
 }
 

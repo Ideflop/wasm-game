@@ -1,0 +1,1 @@
+{"rustc":13646863235972240414,"features":"[]","target":9964182007367023760,"profile":17121947058172583119,"path":6053139747574750941,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/termcolor-07502b73879ef4dc/dep-lib-termcolor"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":5219475942417176210,"config":16520146531172537597,"compile_kind":0}

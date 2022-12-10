@@ -1,0 +1,1 @@
+{"rustc":13646863235972240414,"features":"[]","target":3138302705527156615,"profile":17121947058172583119,"path":8503453493270070482,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/scopeguard-8e44235f57ee7790/dep-lib-scopeguard"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":8648443508444719667,"config":16520146531172537597,"compile_kind":0}

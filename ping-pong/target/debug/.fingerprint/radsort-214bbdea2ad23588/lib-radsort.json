@@ -1,0 +1,1 @@
+{"rustc":13646863235972240414,"features":"[]","target":3857321695385277713,"profile":17121947058172583119,"path":15537925717676139359,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/radsort-214bbdea2ad23588/dep-lib-radsort"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":4100822526093946804,"config":16520146531172537597,"compile_kind":0}

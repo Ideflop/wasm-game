@@ -1,0 +1,1 @@
+{"rustc":13646863235972240414,"features":"[]","target":2081800437227750745,"profile":17121947058172583119,"path":7060659106412308322,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/overload-7e5addd55e86459b/dep-lib-overload"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":8578662877450395966,"config":16520146531172537597,"compile_kind":0}

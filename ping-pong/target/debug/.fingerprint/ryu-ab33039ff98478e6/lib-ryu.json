@@ -1,0 +1,1 @@
+{"rustc":13646863235972240414,"features":"[]","target":8261881835615490997,"profile":17121947058172583119,"path":4574562168098697542,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/ryu-ab33039ff98478e6/dep-lib-ryu"}}],"rustflags":["-C","link-arg=-fuse-ld=/usr/bin/mold"],"metadata":10387617312689919117,"config":16520146531172537597,"compile_kind":0}
